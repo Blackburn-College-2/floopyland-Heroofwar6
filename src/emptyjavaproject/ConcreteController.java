@@ -5,9 +5,10 @@
  */
 package emptyjavaproject;
 
-import com.pauliankline.floopyconnector.BaseHero;
+import com.pauliankline.floopyconnector.*;
 import com.pauliankline.floopyconnector.GameBoard;
 import com.pauliankline.floopyconnector.GameController;
+import java.awt.Point;
 import java.util.ArrayList;
 
 /**
@@ -15,15 +16,25 @@ import java.util.ArrayList;
  * @author cameron.shinall
  */
 public class ConcreteController extends GameController {
-
+    GameBoard halo;
+    int numOfHeros;
+    
     @Override
     public ArrayList<BaseHero> createHeroes(GameBoard arg0, int arg1) {
-        return this.createHeroes(arg0, arg1);
+        halo = arg0;
+        numOfHeros = arg1;
+        ArrayList<BaseHero> herrro = new ArrayList<>();
+        for (int i = 0; i < numOfHeros; i++) {
+            herrro.add(new Hero(halo,new Point(0,1)));
+        }
+        return herrro;
+        
     }
 
     @Override
     public GameBoard mkGameBoard() {
-        return this.mkGameBoard();
+        GameBoard halo = new GameBoard();
+        return halo;
     }
     
 }
