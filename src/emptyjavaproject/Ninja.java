@@ -16,6 +16,7 @@ import java.awt.Point;
 public class Ninja extends Hero{
     public Ninja (GameBoard game, Point point){
         super(game, point);
+        color = "purple";
     }
     
 }

@@ -13,11 +13,13 @@ import java.awt.Point;
  *
  * @author cameron.shinall
  */
-public class Hero extends BaseHero{
-    
-    public Hero(GameBoard game, Point point){
+public class Hero extends BaseHero {
+
+    public Hero(GameBoard game, Point point) {
         super(game, point);
+        game.getGameSquare(point).addHero(this);
     }
+
     @Override
     public boolean isInBattle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -25,12 +27,16 @@ public class Hero extends BaseHero{
 
     @Override
     public String enemy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "HERO";
     }
 
     @Override
     public void gameTickAction(long arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (location.y <= gameboard.getHeight()-1 && location.x + 1 <= gameboard.getWidth()-1) {
+            gameboard.getGameSquare(location).removeHero(this);
+            location.x++;
+            gameboard.getGameSquare(location).addHero(this);
+        }
     }
 
     @Override
@@ -40,7 +46,8 @@ public class Hero extends BaseHero{
 
     @Override
     public boolean isDead() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //change this
+        return false;
     }
-    
+
 }

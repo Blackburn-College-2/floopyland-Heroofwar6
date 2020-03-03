@@ -16,6 +16,10 @@ import java.awt.Point;
 public class Healer extends Hero{
     public Healer (GameBoard game, Point point){
         super(game, point);
+        color = "blue";
+        maxHp = 500;
+        maxDamage = 100;
     }
+    
     
 }

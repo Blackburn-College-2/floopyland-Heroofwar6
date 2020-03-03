@@ -15,5 +15,6 @@ import java.awt.Point;
 public class Krigs extends Hero{
     public Krigs (GameBoard game, Point point){
         super(game, point);
+        color = "yellow";
     }
 }

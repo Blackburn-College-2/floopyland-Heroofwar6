@@ -16,6 +16,7 @@ import java.awt.Point;
 public class Tanker extends Hero{
     public Tanker (GameBoard game, Point point){
         super(game, point);
+        color = "red";
     }
     
 }
