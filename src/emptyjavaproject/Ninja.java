@@ -13,10 +13,12 @@ import java.awt.Point;
  *
  * @author cameron.shinall
  */
-public class Ninja extends Hero{
-    public Ninja (GameBoard game, Point point){
+public class Ninja extends Hero {
+
+    public Ninja(GameBoard game, Point point) {
         super(game, point);
         color = "purple";
+        name = "Grey";
     }
-    
+
 }

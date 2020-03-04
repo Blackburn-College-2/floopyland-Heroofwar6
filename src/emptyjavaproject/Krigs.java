@@ -12,9 +12,11 @@ import java.awt.Point;
  *
  * @author cameron.shinall
  */
-public class Krigs extends Hero{
-    public Krigs (GameBoard game, Point point){
+public class Krigs extends Hero {
+
+    public Krigs(GameBoard game, Point point) {
         super(game, point);
-        color = "yellow";
+        color = "green";
+        name = "Krigs";
     }
 }

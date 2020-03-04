@@ -17,6 +17,7 @@ public class Soldier extends Hero{
     
     public Soldier (GameBoard game, Point point){
         super(game, point);
+        name = "yes";
     }
     
 }

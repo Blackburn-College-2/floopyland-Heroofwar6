@@ -13,13 +13,14 @@ import java.awt.Point;
  *
  * @author cameron.shinall
  */
-public class Healer extends Hero{
-    public Healer (GameBoard game, Point point){
+public class Healer extends Hero {
+
+    public Healer(GameBoard game, Point point) {
         super(game, point);
         color = "blue";
         maxHp = 500;
         maxDamage = 100;
+        name = "Zaphros";
     }
-    
-    
+
 }

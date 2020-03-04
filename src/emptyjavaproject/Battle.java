@@ -5,15 +5,10 @@
  */
 package emptyjavaproject;
 
-import com.pauliankline.floopyconnector.Item;
-
 /**
  *
  * @author cameron.shinall
  */
-public class Items extends Item {
-
-    public Items(String name) {
-        super(name);
-    }
+public class Battle {
+    
 }

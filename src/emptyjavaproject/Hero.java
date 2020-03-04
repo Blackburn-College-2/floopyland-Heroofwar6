@@ -22,7 +22,27 @@ public class Hero extends BaseHero {
 
     @Override
     public boolean isInBattle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        location.x++;
+        if (gameboard.getGameSquare(location).heroesArePresent()) {
+            location.x--;
+            return true;
+        }
+        location.y++;
+        if (gameboard.getGameSquare(location).heroesArePresent()) {
+            location.y--;
+            return true;
+        }
+        location.x--;
+        if (gameboard.getGameSquare(location).heroesArePresent()) {
+            location.x++;
+            return true;
+        }
+        location.y--;
+        if (gameboard.getGameSquare(location).heroesArePresent()) {
+            location.y++;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -32,22 +52,58 @@ public class Hero extends BaseHero {
 
     @Override
     public void gameTickAction(long arg0) {
-        if (location.y <= gameboard.getHeight()-1 && location.x + 1 <= gameboard.getWidth()-1) {
-            gameboard.getGameSquare(location).removeHero(this);
-            location.x++;
-            gameboard.getGameSquare(location).addHero(this);
+
+        int change = (int) ((Math.random() * 4) + 1);
+        boolean move = false;
+        while (!move) {
+
+            if (change == 1) {
+                if (location.x++ + 1 <= gameboard.getWidth() - 1) {
+                    gameboard.getGameSquare(location).removeHero(this);
+                    location.x++;
+                }
+            } else if (change == 2) {
+                if (location.x-- + 1 <= gameboard.getWidth() - 1) {
+                    gameboard.getGameSquare(location).removeHero(this);
+                    location.x--;
+                }
+            } else if (change == 3) {
+                if (location.y++ <= gameboard.getHeight() - 1) {
+                    gameboard.getGameSquare(location).removeHero(this);
+                    location.y++;
+                }
+            } else if (change == 4) {
+                if (location.y-- <= gameboard.getHeight() - 1) {
+                    gameboard.getGameSquare(location).removeHero(this);
+                    location.y--;
+                }
+            }
+            if (gameboard.getGameSquare(location).heroesArePresent()) {
+                change = (int) ((Math.random() * 4) + 1);
+            } else {
+                move = true;
+            }
         }
+
+        gameboard.getGameSquare(location).addHero(this);
     }
 
     @Override
     protected void die() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.isDead()) {
+            gameboard.getGameSquare(location).removeHero(this);
+        }
     }
 
     @Override
     public boolean isDead() {
         //change this
-        return false;
+        if (hp == 0) {
+            return true;
+        } else {
+
+            return false;
+        }
     }
 
 }

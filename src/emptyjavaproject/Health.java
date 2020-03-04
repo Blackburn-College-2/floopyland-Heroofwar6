@@ -10,7 +10,8 @@ package emptyjavaproject;
  * @author cameron.shinall
  */
 public class Health extends Items {
-    public Health (String name){
+
+    public Health(String name) {
         super(name);
     }
 }
