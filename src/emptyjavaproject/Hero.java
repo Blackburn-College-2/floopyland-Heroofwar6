@@ -55,32 +55,35 @@ public class Hero extends BaseHero {
 
         int change = (int) ((Math.random() * 4) + 1);
         boolean move = false;
+        int gox = location.x;
+        int goy = location.y;
         while (!move) {
-
             if (change == 1) {
-                if (location.x++ + 1 <= gameboard.getWidth() - 1) {
+                if (gox++ <= gameboard.getWidth() - 1 && gox++ >= 0) {
                     gameboard.getGameSquare(location).removeHero(this);
                     location.x++;
                 }
             } else if (change == 2) {
-                if (location.x-- + 1 <= gameboard.getWidth() - 1) {
+                if (gox-- <= gameboard.getWidth() - 1 && gox-- >= 0) {
                     gameboard.getGameSquare(location).removeHero(this);
                     location.x--;
                 }
             } else if (change == 3) {
-                if (location.y++ <= gameboard.getHeight() - 1) {
+                if (goy++ <= gameboard.getHeight() - 1 && goy++ >= 0) {
                     gameboard.getGameSquare(location).removeHero(this);
                     location.y++;
                 }
             } else if (change == 4) {
-                if (location.y-- <= gameboard.getHeight() - 1) {
+                if (goy-- <= gameboard.getHeight() - 1 && goy-- >= 0) {
                     gameboard.getGameSquare(location).removeHero(this);
                     location.y--;
                 }
             }
-            if (gameboard.getGameSquare(location).heroesArePresent()) {
+            if (location.x < 0||location.x>gameboard.getHeight()-1) {
                 change = (int) ((Math.random() * 4) + 1);
-            } else {
+            } else if(location.y<0||location.y>gameboard.getWidth()-1){
+                change = (int) ((Math.random()*4)+1);
+            }else{
                 move = true;
             }
         }

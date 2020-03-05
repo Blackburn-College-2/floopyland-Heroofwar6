@@ -17,6 +17,8 @@ public class Tanker extends Hero{
     public Tanker (GameBoard game, Point point){
         super(game, point);
         color = "red";
+        maxHp = 2000;
+        maxDamage = hp;
     }
     
 }

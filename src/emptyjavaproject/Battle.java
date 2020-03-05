@@ -10,5 +10,19 @@ package emptyjavaproject;
  * @author cameron.shinall
  */
 public class Battle {
-    
+    private Hero hero;
+    public Battle(Hero hero){
+        this.hero = hero;
+    }
+    public boolean isBattling(){
+        if(this.hero.isInBattle()){
+            return true;
+        }
+        return false;
+    }
+    public void fight(){
+        if(this.isBattling()){
+            this.hero.enemy();
+        }
+    }
 }

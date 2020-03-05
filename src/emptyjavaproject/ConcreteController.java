@@ -22,7 +22,7 @@ public class ConcreteController extends GameController {
         ArrayList<BaseHero> bh = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
             //make random between heroes
-            int l = (int) ((Math.random() * quantity) + 1);
+            int l = (int) ((Math.random() * quantity+1) + 1);
             int x = (int) ((Math.random() * gb.getWidth()));
             if (x - 1 > 1 && x - 1 < gb.getHeight()) {
                 x = (int) ((Math.random() * gb.getWidth()) - 1);
@@ -42,6 +42,8 @@ public class ConcreteController extends GameController {
                 h = new Ninja(gb, new Point(x, y));
             } else if (l == 5) {
                 h = new Soldier(gb, new Point(x, y));
+            }else if (l==6){
+                h = new Krigs(gb, new Point(x, y));
             }
 
             bh.add(h);
